@@ -3,7 +3,7 @@
 /**
  *main - void
  *
- *Return: zero delivery
+ *Return: zero return
  */
 
 int main(void)
