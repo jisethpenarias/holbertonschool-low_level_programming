@@ -10,9 +10,10 @@ int main(void)
 {
 int number;
 int secondNumber;
+int iterator;
+iterator = 0;
 number = 48;
 secondNumber = 48;
-int iterator = 0;
 
 while (number <= 57)
 {
