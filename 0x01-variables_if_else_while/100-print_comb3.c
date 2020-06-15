@@ -10,8 +10,6 @@ int main(void)
 {
 int number;
 int secondNumber;
-int limit;
-limit = 57;
 number = 48;
 secondNumber = 48;
 int iterator = 0;
