@@ -30,8 +30,8 @@ _putchar(48 + valueToPrint);
 if (i != 9)
 {
 _putchar(44);
-}
 _putchar(32);
+}
 }
 _putchar('\n');
 repetitions++;
