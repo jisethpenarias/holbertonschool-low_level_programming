@@ -24,7 +24,10 @@ _putchar(48 + (valueToPrint % 10));
 }
 else
 {
+if (i != 0)
+{
 _putchar(32);
+}
 _putchar(48 + valueToPrint);
 }
 if (i != 9)
