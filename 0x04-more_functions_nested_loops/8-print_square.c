@@ -21,7 +21,7 @@ while (i < size)
 hash = 0;
 while (hash < size)
 {
-_putchar(35);
+_putchar('#');
 hash++;
 }
 _putchar ('\n');
