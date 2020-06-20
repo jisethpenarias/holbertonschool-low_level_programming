@@ -17,6 +17,10 @@ void print_diagonal(int n)
 
 	i = 0;
 
+	if (n <= 0)
+	{
+		_putchar('\n');
+	}
 	while (i < n)
 	{
 		whitespace = 0;
@@ -25,9 +29,6 @@ void print_diagonal(int n)
 			if (whitespace == i)
 			{
 				_putchar(92);
-			}
-			if (whitespace == i + 1)
-			{
 				break;
 			}
 			_putchar(32);
