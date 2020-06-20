@@ -10,6 +10,10 @@ void print_triangle(int size)
 	int i = 1;
 	int a = size - 1;
 
+	if (size == 0)
+	{
+		_putchar('\n');
+	}
 	while (i <= size)
 	{
 		r = 0;
