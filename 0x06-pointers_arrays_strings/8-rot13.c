@@ -15,7 +15,7 @@ char *rot13(char *s)
 	while (s[i] != '\0')
 	{
 		x = 0;
-		while (alpha[x] != '\0')
+		while (alpha[x] < 52)
 		{
 			if (s[i] == alpha[x])
 			{
