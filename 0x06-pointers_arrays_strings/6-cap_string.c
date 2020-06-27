@@ -1,45 +1,6 @@
 #include "holberton.h"
 
 /**
- * isLowercased - verify if is lower cased..
- *
- *@a: variable char
- * Return: 0.
- */
-
-int isLowercased(char a)
-{
-	if ((a >= 'a') && (a <= 'z'))
-		return (1);
-
-	return (0);
-}
-
-/**
- * verifyExcept - verify except..
- *
- *@charBefore:  verify  char before.
- *@exept: verify if there is an exception.
- * Return: 0.
- */
-
-int verifyExcept(char charBefore, char *exept)
-{
-	int i;
-
-	i = 0;
-
-	while (exept[i] != '\0')
-	{
-		if (exept[i] == charBefore)
-			return (1);
-
-		i++;
-	}
-	return (0);
-}
-
-/**
  * cap_string - capitalizes all words of a string
  * @a: string to capitalize
  * Return: string;
@@ -54,8 +15,20 @@ char *cap_string(char *a)
 
 	while (a[i] != '\0')
 	{
-		if (isLowercased(a[i]) &&
-		     verifyExcept(a[i - 1], exept))
+		int x;
+		int isAnException;
+
+		x = 0;
+		isAnException = 0;
+
+		while (exept[x] != '\0')
+		{
+			if (i > 0 && exept[x] == a[i - 1])
+				isAnException = 1;
+			x++;
+		}
+
+		if (((a[i] >= 'a') && (a[i] <= 'z')) && isAnException)
 		{
 			a[i] = a[i] - 32;
 		}
