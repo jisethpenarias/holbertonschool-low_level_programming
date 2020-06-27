@@ -23,8 +23,11 @@ char *cap_string(char *a)
 
 		while (exept[x] != '\0')
 		{
-			if (i > 0 && exept[x] == a[i - 1])
+			if ((i == 0 && exept[x] == a[i]) ||
+			    (i > 0 && exept[x] == a[i - 1]))
+			{
 				isAnException = 1;
+					}
 			x++;
 		}
 
