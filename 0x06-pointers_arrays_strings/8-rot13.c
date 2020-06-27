@@ -10,16 +10,16 @@ char *rot13(char *s)
 {
 	int i, x;
 	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char rem[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	while (s[i] != '\0')
 	{
 		x = 0;
 		while (alpha[x] != '\0')
 		{
-			if (s[i] == alpha[i])
+			if (s[i] == alpha[x])
 			{
-				s[i] = rot[i];
+				s[i] = rem[x];
 			}
 			x++;
 		}
