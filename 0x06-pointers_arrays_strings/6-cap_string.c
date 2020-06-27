@@ -47,9 +47,9 @@ int verifyExcept(char charBefore, char *exept)
 
 char *cap_string(char *a)
 {
-	int i = 0;;
+	int i = 0;
 
-        char exept[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?',
+	char exept[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?',
 			  '"', '(', ')', '{', '}'};
 
 	while (a[i] != '\0')
