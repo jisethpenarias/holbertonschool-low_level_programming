@@ -8,18 +8,19 @@
  * @c: char to check for
  * Return: returns first occurence of c in s, or NULL if not found
  */
-
 char *_strchr(char *s, char c)
 {
-	char *ptr = s;
-	int i = 0;
+	int i;
 
-	while (*s != c)
+	i = 0;
+
+	while (s[i] != '\0')
 	{
-		s++;
-		i++;
+		if (s[i] == c)
+		{
+			return (s + i);
+		}
+		++i;
 	}
-	if (*s == c)
-		return (ptr + i);
 	return ('\0');
 }
