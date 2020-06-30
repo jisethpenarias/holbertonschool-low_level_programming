@@ -13,26 +13,18 @@ char *_strpbrk(char *s, char *accept)
 int i = 0;
 int j;
 
-char its;
-char itace;
-
-its = *s;
-itace = *accept;
-
-while (its)
+while (*(s + i))
 {
-its = *(s + i);
 j = 0;
-itace = *(accept + j);
-while (itace)
+while (*(accept + j))
 {
-itace = *(accept + j);
-if (its == itace)
+if (*(s + i) == *(accept + j))
 {
 break;
 }
 j++;
 }
+
 if (*(accept + j) != '\0')
 {
 return (s + i);
