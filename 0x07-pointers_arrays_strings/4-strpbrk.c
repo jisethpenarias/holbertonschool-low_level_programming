@@ -33,11 +33,11 @@ break;
 }
 j++;
 }
-if (itace != NULL)
+if (*(accept + j) != '\0')
 {
 return (s + i);
 }
 i++;
 }
-return (NULL);
+return (0);
 }
