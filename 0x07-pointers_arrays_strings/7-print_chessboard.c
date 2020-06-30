@@ -13,19 +13,12 @@ int i, j;
 
 i = 0;
 
-for (; a[i] != '\0'; i++)
+for (i = 0; i < 8; i++)
 {
-if (i == 8)
-break;
-
-j = 0;
-for (; a[i][j] != '\0'; j++)
+for (j = 0; j < 8; j++)
 {
 _putchar(a[i][j]);
-if (j == 7)
-break;
 }
-if (i != 8)
 _putchar('\n');
 }
 }
