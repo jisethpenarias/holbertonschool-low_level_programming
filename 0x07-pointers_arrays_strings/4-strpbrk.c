@@ -27,7 +27,7 @@ itace = *(accept + j);
 while (itace)
 {
 itace = *(accept + j);
-if (its == itace)
+if (its == itace && itace != NULL)
 {
 return (s + i);
 }
