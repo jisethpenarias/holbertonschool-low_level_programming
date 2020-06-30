@@ -25,7 +25,7 @@ _putchar(a[i][j]);
 if (j == 7)
 break;
 }
-if (i != 7)
+if (i != 8)
 _putchar('\n');
 }
 }
