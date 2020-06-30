@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * *_strstr - check the code for Holberton School students.
  * @haystack: esto es toda la cadena
