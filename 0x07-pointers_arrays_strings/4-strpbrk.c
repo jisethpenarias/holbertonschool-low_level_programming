@@ -27,11 +27,15 @@ itace = *(accept + j);
 while (itace)
 {
 itace = *(accept + j);
-if (its == itace && itace != NULL)
+if (its == itace)
 {
-return (s + i);
+break;
 }
 j++;
+}
+if (itace != NULL)
+{
+return (s + i);
 }
 i++;
 }
