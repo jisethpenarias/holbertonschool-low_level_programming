@@ -21,10 +21,9 @@ void print_diagsums(int *a, int size)
 	}
 	printf("%d", suma);
 	printf(", ");
-
 	suma = 0;
 
-	for (b = size - 1; b < size * size ; b += size - 1)
+	for (b = size - 1; b <= (size * size) - size; b = b + size - 1)
 	{
 		suma += a[b];
 	}
