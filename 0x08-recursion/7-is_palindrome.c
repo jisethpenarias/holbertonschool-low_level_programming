@@ -50,7 +50,6 @@ return (0);
 int is_palindrome(char *s)
 {
 
-char resultado;
 int x;
 int start = 0;
 
