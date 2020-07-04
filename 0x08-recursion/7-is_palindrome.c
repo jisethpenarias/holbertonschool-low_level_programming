@@ -17,24 +17,18 @@ return (0);
 
 return (size + 1 + longi(s + 1));
 }
+
 /**
- * is_palindrome -  string is a palindrome
- * @s: thi is a pointer
- * Return: void
+ * comparison - compare the start and end of the string.
+ * @start: int start.
+ * @end: int end.
+ * @s: thi is a pointer.
+ * Return: 0
  */
-
-
-/**
-* comparison- compare the start and end of the string.
-* @s: thi is a pointer
-* @start: string start.
-* @end: string end.
-* Return: 0
-*/
 
 int comparison(int start, int end, char *s)
 {
-if (s[start] == s[end]) 
+if (s[start] == s[end])
 {
 if (start > end)
 {
@@ -48,6 +42,11 @@ return (0);
 }
 }
 
+/**
+ * is_palindrome -  string is a palindrome
+ * @s: thi is a pointer
+ * Return: void
+ */
 int is_palindrome(char *s)
 {
 
