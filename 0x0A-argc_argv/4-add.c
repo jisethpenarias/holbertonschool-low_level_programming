@@ -14,10 +14,11 @@ int main(int argc, char *argv[])
 {
 	int result;
 	int count;
+	int i;
 
 	result = 0;
 
-	if (argc < 1)
+	if (argc < 3)
 	{
 		printf("%i\n", 0);
 		return (0);
@@ -25,7 +26,7 @@ int main(int argc, char *argv[])
 
 	for (count = 1; count < argc; count++)
 	{
-		for (int i = 0; argv[count][i] != '\0'; i++)
+		for (i = 0; argv[count][i] != '\0'; i++)
 		{
 
 			if (!(isdigit(argv[count][i])))
