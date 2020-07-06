@@ -1,6 +1,8 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * main - adds positive numbers.
@@ -24,10 +26,14 @@ int main(int argc, char *argv[])
 
 	for (count = 1; count < argc; count++)
 	{
-		if (atoi(argv[count]) == 0)
+		for (int i = 0; argv[count][i] != '\0'; i++)
 		{
-			printf("Error\n");
-			return (1);
+
+			if (!(isdigit(argv[count][i])))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 		result += atoi(argv[count]);
 	}
