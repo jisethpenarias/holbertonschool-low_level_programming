@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		result += atoi(argv[count]);
 	}
 
-	printf("%i\n", result);
+	printf("%d\n", result);
 
 	return (0);
 }
