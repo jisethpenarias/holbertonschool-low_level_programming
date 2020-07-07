@@ -1,4 +1,6 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _strdup - copies input string in newly allocated memory
@@ -9,35 +11,20 @@
 char *_strdup(char *str)
 {
 	char *copy;
-	int i;
+	unsigned int i;
 
 	i = 0;
 
 	if (str == '\0')
 		return (NULL);
 
-	while (*str)
-	{
-		str++;
+	while (str[i] != 0)
 		i++;
-	}
-
-	if (i == 0)
-		return (NULL);
+	i++;
 
 	copy = malloc(i * sizeof(char));
-
-	if (copy == '\0')
-		return (NULL);
-
-	str = str - i;
-	i = 0;
-	while (*str)
-	{
-		copy[i] = *str;
-		str++;
-		i++;
-	}
-
+	for (i = 0; str[i] != 0; i++)
+		copy[i] = str[i];
+	copy[i] = 0;
 	return (copy);
 }
