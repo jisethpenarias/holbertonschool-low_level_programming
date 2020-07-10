@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * str_concat - concat strings
+ * string_nconcat - concat strings
  * @s1: input string
  * @s2: input string
  * @n: s2 limiter
@@ -25,7 +25,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s1[s1size] != '\0')
 		s1size++;
 
-	result = malloc((s1size + n + 1) * sizeof(char));
+	result = malloc(sizeof(char) * (s1size + n + 1));
 	if (result == '\0')
 		return (NULL);
 
