@@ -1,7 +1,4 @@
-#ifndef GUARDS_H
-#define GUARDS_H
-
-#include "holberton.h"
-
+#ifndef FUNCTION_LIKE_MACRO
+#define FUNCTION_LIKE_MACRO
 #define ABS(x) ((x) < 0 ? (x * -1) : (x))
 #endif
