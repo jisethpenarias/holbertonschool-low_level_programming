@@ -1,5 +1,5 @@
-#ifndef GUARDS
-#define GUARDS
+#ifndef GUARDS_H
+#define GUARDS_H
 
 #include "holberton.h"
 
