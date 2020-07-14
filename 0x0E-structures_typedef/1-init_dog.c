@@ -11,7 +11,6 @@
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	//d is a pointer that receives the address of my_dog structure.
 	if (d)
 	{
 		(*d).name = name;
