@@ -11,7 +11,7 @@
  * Return: void.
  */
 
-dog_t new_dog(char name, float age, char *owner)
+dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *conchi_pointer;
 
@@ -19,9 +19,14 @@ dog_t new_dog(char name, float age, char *owner)
 	if (conchi_pointer == NULL)
 		return (NULL);
 
-	conchi_pointer->name = name;
+	conchi_pointer->name = strdup(name);
+	if (conchi_pointer->name == NULL)
+		return (NULL);
+
 	conchi_pointer->age = age;
-	conchi_pointer->owner = owner;
+	conchi_pointer->owner = strdup(owner);
+	if (conchi_pointer->owner == NULL)
+		return (NULL);
 
 	return (conchi_pointer);
 }
