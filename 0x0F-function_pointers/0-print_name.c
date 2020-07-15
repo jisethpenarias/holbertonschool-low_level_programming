@@ -11,5 +11,5 @@ void print_name(char *name, void (*f)(char *))
 	if (name == NULL || f == NULL)
 		return;
 	/*this equals void (*f)() = name*/
-		f(name);
+		(*f)(name);
 }
