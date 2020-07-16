@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
 	operation = &(*get_op_func(operator));
 
-	printf("%d\n", (*operation)(num1, num2));
+	printf("%i\n", (*operation)(num1, num2));
 
 	return (0);
 }
