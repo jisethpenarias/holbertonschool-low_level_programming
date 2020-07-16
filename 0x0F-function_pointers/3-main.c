@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	
+
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -36,10 +36,11 @@ int main(int argc, char *argv[])
 	int num2 = atoi(argv[3]);
 	char *operator = argv[2];
 
-	int(*operation)(int,int);
+	int (*operation)(int, int);
+
 	operation = &(*get_op_func(operator));
 
-	printf("%i",(*operation)(num1,num2));
+	printf("%i", (*operation)(num1, num2));
 
 	return (0);
 }
