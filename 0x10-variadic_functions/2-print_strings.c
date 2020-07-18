@@ -21,7 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		aux = va_arg(valist, char *);
-		printf("%s", aux == NULL ? "nil" : aux);
+		printf("%s", aux == NULL ? "(nil)" : aux);
 		if (i != n - 1 && separator != NULL)
 			printf("%s", separator);
 	}
