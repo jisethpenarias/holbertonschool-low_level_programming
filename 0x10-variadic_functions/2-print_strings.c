@@ -18,9 +18,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	/*initializing va_list to store all variables after n*/
 	va_start(valist, n);
 
-	if (n == 0)
-		return;
-
 	for (i = 0; i < n; i++)
 	{
 		aux = va_arg(valist, char *);
