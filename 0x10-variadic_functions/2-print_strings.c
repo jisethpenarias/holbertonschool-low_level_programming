@@ -24,20 +24,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		aux = va_arg(valist, char *);
-		if (aux == NULL)
-		{
-			if (i != n - 1 && separator != NULL)
-				printf("nil%s", separator);
-			else
-				printf("nil");
-		}
-		else
-		{
-			if (i != n - 1 && separator != NULL)
-				printf("%s%s", aux, separator);
-			else
-				printf("%s", aux);
-		}
+		printf("%s", aux == NULL ? "nil" : aux);
+		if (i != n - 1 && separator != NULL)
+			printf("%s", separator);
 	}
 	printf("\n");
 	va_end(valist);
