@@ -39,7 +39,12 @@ void print_float(void *parameter)
  */
 void print_s(void *parameter)
 {
-	printf("%s", ((char *)parameter) == '\0' ? "(nil)" : (char *)parameter);
+	if ((char *)parameter == '\0')
+	{
+		printf("%s", "(nil)");
+		return;
+	}
+	printf("%s", (char *)parameter);
 }
 
 /**
