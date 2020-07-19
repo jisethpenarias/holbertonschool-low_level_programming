@@ -50,7 +50,7 @@ void print_s(va_list valist)
 
 /**
  *print_all - that prints anything.
- *@format: string to be printed between numbers.
+ *@format: string to be printed between numbers
  *Return: void.
  */
 void print_all(const char *const format, ...)
@@ -67,12 +67,10 @@ void print_all(const char *const format, ...)
 	};
 
 	i = 0;
-	j = 0;
 	delimiter = "";
 
 	va_start(valist, format);
-
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (types[j].t != NULL)
