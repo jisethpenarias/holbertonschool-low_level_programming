@@ -7,9 +7,9 @@
  * @parameter: string to be printed between numbers.
  * Return: void.
  */
-void print_char(void *parameter)
+void print_char(va_list valist)
 {
-	printf("%c", *(char *)(&parameter));
+	printf("%c", va_arg(valist, int));
 }
 
 /**
@@ -17,9 +17,9 @@ void print_char(void *parameter)
  *@parameter: string to be printed between numbers.
  *Return: void.
  */
-void print_int(void *parameter)
+void print_int(va_list valist)
 {
-	printf("%i", *(int *)(&parameter));
+	printf("%d", va_arg(valist, int));
 }
 
 /**
@@ -27,9 +27,9 @@ void print_int(void *parameter)
  *@parameter: string to be printed between numbers.
  *Return: void.
  */
-void print_float(void *parameter)
+void print_float(va_list valist)
 {
-	printf("%f", *(float *)(&parameter));
+	printf("%f", va_arg(valist, double));
 }
 
 /**
@@ -37,14 +37,19 @@ void print_float(void *parameter)
  *@parameter: string to be printed between numbers.
  *Return: void.
  */
-void print_s(void *parameter)
+void print_s(va_list arg)
 {
-	if ((char *)parameter == '\0')
+	char *str;
+
+	str = va_arg(arg, char *);
+
+	if (str == NULL)
 	{
-		printf("%s", "(nil)");
+		printf("(nil)");
 		return;
 	}
-	printf("%s", (char *)parameter);
+
+	printf("%s", str);
 }
 
 /**
@@ -78,7 +83,7 @@ void print_all(const char *const format, ...)
 			if (types[j].t == format[i])
 			{
 				printf("%c ", delimiter);
-				types[j].f(va_arg(valist, void *));
+				types[j].f(valist);
 				delimiter = ',';
 				break;
 			}
