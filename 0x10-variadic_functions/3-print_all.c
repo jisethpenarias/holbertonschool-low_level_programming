@@ -51,7 +51,7 @@ void print_all(const char *const format, ...)
 {
 	va_list valist;
 	int i, j;
-	void (*printer)(void *parameter);
+	char delimiter;
 	print_t types[] = {
 		{'c', print_char},
 		{'i', print_int},
@@ -70,12 +70,11 @@ void print_all(const char *const format, ...)
 		j = 0;
 		while (types[j].t)
 		{
-			printer = (types[j].t) == format[i] ? (types[j].f) : NULL;
-			if (printer != NULL)
+			if (types[j].t == format[i])
 			{
-				printer(va_arg(valist, void *));
-				if (format[i + 1])
-					printf("%s", ", ");
+				printf("%c ", delimiter);
+				types[j].f(va_arg(valist, void *));
+				delimiter = ',';
 				break;
 			}
 			j++;
