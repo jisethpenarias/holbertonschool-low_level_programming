@@ -34,14 +34,14 @@ void print_float(va_list valist)
 
 /**
  *print_s - print chars.
- *@ap: string to be printed between numbers.
+ *@valist: string to be printed between numbers.
  *Return: void.
  */
-void print_s(va_list ap)
+void print_s(va_list valist)
 {
 	char *str;
 
-	str = va_arg(ap, char *);
+	str = va_arg(valist, char *);
 	if (str == NULL)
 		str = "(nil)";
 	printf("%s", str);
@@ -88,6 +88,6 @@ void print_all(const char *const format, ...)
 		}
 		i++;
 	}
-	va_end(valist);
 	printf("\n");
+	va_end(valist);
 }
