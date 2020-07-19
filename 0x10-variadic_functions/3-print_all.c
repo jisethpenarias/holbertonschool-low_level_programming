@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-
 /**
  * print_char - print chars.
  * @parameter: string to be printed between numbers.
@@ -63,18 +62,19 @@ void print_all(const char *const format, ...)
 
 	i = 0;
 	j = 0;
-	
-	va_start(valist, format);	
-	
+
+	va_start(valist, format);
+
 	while (format[i])
-	{	
+	{
 		j = 0;
 		while (types[j].t)
 		{
 			printer = (types[j].t) == format[i] ? (types[j].f) : NULL;
-			if (printer != NULL){
+			if (printer != NULL)
+			{
 				printer(va_arg(valist, void *));
-				if (format[i+1])
+				if (format[i + 1])
 					printf("%s", ", ");
 				break;
 			}
@@ -82,6 +82,6 @@ void print_all(const char *const format, ...)
 		}
 		i++;
 	}
-	
+
 	va_end(valist);
 }
