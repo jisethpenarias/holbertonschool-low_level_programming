@@ -34,18 +34,16 @@ void print_float(va_list valist)
 
 /**
  *print_s - print chars.
- *@arg: string to be printed between numbers.
+ *@ap: string to be printed between numbers.
  *Return: void.
  */
-void print_s(va_list arg)
+void print_s(va_list ap)
 {
 	char *str;
 
-	str = va_arg(arg, char *);
-
+	str = va_arg(ap, char *);
 	if (str == NULL)
 		str = "(nil)";
-
 	printf("%s", str);
 }
 
@@ -61,10 +59,11 @@ void print_all(const char *const format, ...)
 	int i, j;
 	char *delimiter;
 	print_t types[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_s}
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_s},
+		{NULL, NULL}
 	};
 
 	i = 0;
@@ -76,9 +75,9 @@ void print_all(const char *const format, ...)
 	while (format[i])
 	{
 		j = 0;
-		while (j < 4)
+		while (types[j].t != NULL)
 		{
-			if (types[j].t == format[i])
+			if (*(types[j].t) == format[i])
 			{
 				printf("%s", delimiter);
 				types[j].f(valist);
