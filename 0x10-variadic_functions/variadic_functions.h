@@ -2,13 +2,13 @@
 #define _VARIADIC_FUNCTIONS_H_
 #include <stdarg.h>
 /**
- * struct print - print type with corresponding print function
- * @t: print type
- * @f: print function
+ * struct print - print type with print function task 3
+ * @t: print type.
+ * @f: print function.
  */
 typedef struct print
 {
-	char *t;
+	char t;
 	void (*f)(va_list);
 } print_t;
 

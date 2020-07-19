@@ -4,7 +4,7 @@
 
 /**
  * print_char - print chars.
- * @parameter: string to be printed between numbers.
+ * @valist: string to be printed between numbers.
  * Return: void.
  */
 void print_char(va_list valist)
@@ -14,7 +14,7 @@ void print_char(va_list valist)
 
 /**
  *print_int - print chars.
- *@parameter: string to be printed between numbers.
+ *@valist: string to be printed between numbers.
  *Return: void.
  */
 void print_int(va_list valist)
@@ -24,7 +24,7 @@ void print_int(va_list valist)
 
 /**
  *print_float - print chars.
- *@parameter: string to be printed between numbers.
+ *@valist: string to be printed between numbers.
  *Return: void.
  */
 void print_float(va_list valist)
@@ -34,7 +34,7 @@ void print_float(va_list valist)
 
 /**
  *print_s - print chars.
- *@parameter: string to be printed between numbers.
+ *@arg: string to be printed between numbers.
  *Return: void.
  */
 void print_s(va_list arg)
