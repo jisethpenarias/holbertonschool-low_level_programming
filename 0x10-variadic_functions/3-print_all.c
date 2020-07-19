@@ -56,7 +56,7 @@ void print_all(const char *const format, ...)
 {
 	va_list valist;
 	int i, j;
-	char delimiter;
+	char *delimiter;
 	print_t types[] = {
 		{'c', print_char},
 		{'i', print_int},
@@ -67,6 +67,7 @@ void print_all(const char *const format, ...)
 
 	i = 0;
 	j = 0;
+	delimiter = "";
 
 	va_start(valist, format);
 
@@ -77,9 +78,9 @@ void print_all(const char *const format, ...)
 		{
 			if (types[j].t == format[i])
 			{
-				printf("%c ", delimiter);
+				printf("%s", delimiter);
 				types[j].f(va_arg(valist, void *));
-				delimiter = ',';
+				delimiter = ", ";
 				break;
 			}
 			j++;
