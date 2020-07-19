@@ -67,8 +67,7 @@ void print_all(const char *const format, ...)
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
-		{'s', print_s},
-		{'\0', NULL},
+		{'s', print_s}
 	};
 
 	i = 0;
@@ -80,7 +79,7 @@ void print_all(const char *const format, ...)
 	while (format[i])
 	{
 		j = 0;
-		while (types[j].t)
+		while (j < 4)
 		{
 			if (types[j].t == format[i])
 			{
