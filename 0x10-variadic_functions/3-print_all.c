@@ -40,34 +40,7 @@ void print_float(void *parameter)
  */
 void print_s(void *parameter)
 {
-	printf("%s", (char *)parameter);
-}
-
-/**
- *get_printer_func - get pirnter function
- *@t: type of data
- *Return: pointer to function
- **/
-void (*get_printer_func(char t))(void *parameter)
-{
-	print_t types[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_s},
-		{'\0', NULL},
-	};
-	int i;
-
-	i=0;
-
-	while (types[i].t)
-	{
-		if ((types[i].t) == t)
-			return (types[i].f);
-		i++;
-	}
-	return (NULL);
+	printf("%s", ((char *)parameter) == '\0' ? "(nil)" : (char *)parameter);
 }
 
 /**
@@ -78,22 +51,37 @@ void (*get_printer_func(char t))(void *parameter)
 void print_all(const char *const format, ...)
 {
 	va_list valist;
-	int i;
+	int i, j;
 	void (*printer)(void *parameter);
+	print_t types[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_s},
+		{'\0', NULL},
+	};
 
 	i = 0;
+	j = 0;
 	
 	va_start(valist, format);	
 	
 	while (format[i])
-	{
-		printer = get_printer_func(format[i]);
-		if (printer != NULL){
-			printer(va_arg(valist, void *));
-			if (i != size - 1 )
-				printf("%s", ", ");
+	{	
+		j = 0;
+		while (types[j].t)
+		{
+			printer = (types[j].t) == format[i] ? (types[j].f) : NULL;
+			if (printer != NULL){
+				printer(va_arg(valist, void *));
+				if (format[i+1])
+					printf("%s", ", ");
+				break;
+			}
+			j++;
 		}
 		i++;
 	}
+	
 	va_end(valist);
 }
