@@ -78,19 +78,14 @@ void (*get_printer_func(char t))(void *parameter)
 void print_all(const char *const format, ...)
 {
 	va_list valist;
-	int i, size;
+	int i;
 	void (*printer)(void *parameter);
-	void *pointerNumber;
 
 	i = 0;
-	size = 0;
-	while (format[size])
-		size++;
-
-	pointerNumber = &i;
+	
 	va_start(valist, format);	
 	
-	while (i < size)
+	while (format[i])
 	{
 		printer = get_printer_func(format[i]);
 		if (printer != NULL){
@@ -100,4 +95,5 @@ void print_all(const char *const format, ...)
 		}
 		i++;
 	}
+	va_end(valist);
 }
