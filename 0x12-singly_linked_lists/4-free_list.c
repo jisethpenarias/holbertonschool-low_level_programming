@@ -1,10 +1,9 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * free_list - clear a linked list in memory
  * @head: list_t to free
- *
- * Return: void
  */
 void free_list(list_t *head)
 {
