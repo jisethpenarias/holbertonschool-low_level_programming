@@ -29,8 +29,9 @@ list_t *add_node(list_t **head, const char *str)
 
 	/*with strdup I double the string it receives as an argument*/
 	newNode->str = copyStr;
-	for (lenStr = 0; copyStr[lenStr];lenStr++)
-	{	
+
+	for (lenStr = 0; copyStr[lenStr]; lenStr++)
+	{
 	}
 	newNode->len = lenStr;
 	/*pointer to the next value in the linked list*/
