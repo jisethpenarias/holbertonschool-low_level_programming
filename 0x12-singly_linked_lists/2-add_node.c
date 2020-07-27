@@ -18,7 +18,7 @@ list_t *add_node(list_t **head, const char *str)
 	copyStr = strdup(str);
 	/*space for the new node*/
 	newNode = (list_t *)malloc(sizeof(list_t));
-	if (newNode == NULL)
+	if (newNode == NULL || copyStr == NULL)
 	{
 		/*in cese of failure free the memory of the newNode*/
 		free(newNode);
