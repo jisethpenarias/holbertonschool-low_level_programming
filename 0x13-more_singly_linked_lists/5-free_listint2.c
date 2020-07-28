@@ -10,12 +10,15 @@ void free_listint2(listint_t **head)
 {
 	listint_t *auxNode;
 
-	auxNode = *head;
+	if (head == NULL)
+		return;
 
+	auxNode = *head;
 	while (auxNode)
 	{
 		*head = auxNode->next;
 		free(auxNode);
 		auxNode = *head;
 	}
+	*head = NULL;
 }
