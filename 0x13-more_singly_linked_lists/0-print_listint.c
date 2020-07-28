@@ -2,7 +2,8 @@
 
 /**
  * print_listint - prints all the elements of a list_t.
- *@h: struct to print.
+ * @h: struct to print.
+ *
  * Return: the number of nodes.
  */
 
