@@ -38,11 +38,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	while (count != idx - 1 && auxNode != NULL)
 	{
 		auxNode = auxNode->next;
+		if (auxNode == NULL)
+		{
+			return (NULL);
+		}
 		auxNodeProx = auxNode->next;
 		count++;
 	}
-	if (auxNode == NULL)
-		return (NULL);
 
 	auxNode->next = newNodeIdx;
 	newNodeIdx->next = auxNodeProx;
