@@ -1,5 +1,7 @@
-#ifdef HOLBERTON_H
+#ifndef HOLBERTON_H
 #define HOLBERTON_H
+
+#include <stddef.h>
 #include <stdio.h>
 
 unsigned int binary_to_uint(const char *b);
