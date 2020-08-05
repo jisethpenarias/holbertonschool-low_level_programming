@@ -2,8 +2,9 @@
 
 /**
  * errorHandling - handling
- * @error: number of error 
+ * @error: number of error
  * @fileName: filename
+ * @fd: int.
  * Return: void
  */
 void errorHandling(int error, char *fileName, int fd)
@@ -16,7 +17,8 @@ void errorHandling(int error, char *fileName, int fd)
 
 	if (error == 98)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileName);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			fileName);
 		exit(98);
 	}
 
