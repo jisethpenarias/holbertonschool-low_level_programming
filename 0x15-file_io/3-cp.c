@@ -61,6 +61,11 @@ int main(int argc, char *argv[])
 
 	to_file_name = argv[2];
 	file_to = open(to_file_name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to_file_name);
+		exit(99);
+	}
 
 	writer = write(file_to, buffer_from, 1024);
 	if (writer == -1)
