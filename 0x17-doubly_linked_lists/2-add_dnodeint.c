@@ -20,16 +20,12 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	}
 	newNode->n = n;
 	newNode->prev = NULL;
-	newNode->next = NULL;
-
-	if (*head == NULL)
-	{
-		*head = newNode;
-		return (NULL);
-	}
-	(*head)->prev = newNode;
 	newNode->next = *head;
 
+	if (*head != NULL)
+	{
+		(*head)->prev = newNode;
+	}
 	/*change the pointer head whit the new real head on the linked list*/
 	*head = newNode;
 	return (newNode);
