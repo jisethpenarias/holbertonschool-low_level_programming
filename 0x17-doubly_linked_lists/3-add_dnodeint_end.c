@@ -21,23 +21,21 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		return (NULL);
 	}
 
-	auxNode = *head;
-	if (*head != NULL)
-	{
-		while (auxNode->next != NULL)
-		{
-			auxNode = auxNode->next;
-		}
-		auxNode->next = newNodeEnd;
-	}
-	else
+	newNodeEnd->n = n;
+	newNodeEnd->next = NULL;
+
+	if (*head == NULL)
 	{
 		newNodeEnd->prev = NULL;
 		*head = newNodeEnd;
 		return (newNodeEnd);
 	}
-	newNodeEnd->n = n;
+	auxNode = *head;
+	while (auxNode->next != NULL)
+	{
+		auxNode = auxNode->next;
+	}
+	auxNode->next = newNodeEnd;
 	newNodeEnd->prev = auxNode->next;
-	newNodeEnd->next = NULL;
 	return (newNodeEnd);
 }
