@@ -10,34 +10,41 @@
 
 hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 {
-	hash_node_t *newNode;
-	char *copyKey;
-	char *copyValue;
+	hash_node_t *newNode, **tmp;
+	char *copyKey, *copyValue;
 
-	copyKey = strdup(key);
-	copyValue = strdup(value);
-	/*space for the new node*/
+	copyKey = strdup(key), copyValue = strdup(value);
+
 	newNode = (hash_node_t *)malloc(sizeof(hash_node_t));
 	if (newNode == NULL || copyKey == NULL || copyValue == NULL)
 	{
-		/*in cese of failure free the memory of the newNode*/
 		free(newNode);
-		/*in cese of failure free the memory of the copyStr*/
 		free(copyKey);
 		free(copyValue);
-		return (0);
+		return (NULL);
+	}
+	tmp = head;
+	while (tmp != NULL)
+	{
+		if (strcmp((*tmp)->key, key) == 0)
+		{
+			free((*tmp)->value);
+			(*tmp)->value = strdup(value);
+			if ((*tmp)->value == NULL)
+				return (NULL);
+			return (*tmp);
+		}
+		(*tmp) = (*tmp)->next;
 	}
 
 	/*with strdup I double the string it receives as an argument*/
 	newNode->key = copyKey;
 	newNode->value = copyValue;
 	if (newNode->value == NULL)
-		return (0);
-
+		return (NULL);
 	newNode->next = *head;
 	/*change the pointer head whit the new real head on the linked list*/
 	*head = newNode;
-
 	return (newNode);
 }
 
@@ -51,6 +58,7 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = 0;
+	hash_node_t *aux_node;
 
 	if (!ht || !key || !value)
 		return (0);
@@ -58,6 +66,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	/* index: place where the new node is indexed in the hash table*/
 
-	ht->array[index] = add_node(&(ht->array[index]), key, value);
+	aux_node = add_node(&(ht->array[index]), key, value);
+	if (aux_node == NULL)
+		return (0);
+
+	ht->array[index] = aux_node;
 	return (1);
 }
