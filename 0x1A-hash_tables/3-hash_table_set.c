@@ -31,6 +31,8 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 	/*with strdup I double the string it receives as an argument*/
 	newNode->key = copyKey;
 	newNode->value = copyValue;
+	if (newNode->value == NULL)
+		return (0);
 
 	newNode->next = *head;
 	/*change the pointer head whit the new real head on the linked list*/
