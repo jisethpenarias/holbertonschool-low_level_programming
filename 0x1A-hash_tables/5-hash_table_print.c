@@ -23,7 +23,7 @@ void hash_table_print(const hash_table_t *ht)
 		while (ht_tmp)
 		{
 			printf("%s'%s': '%s'", str, ht_tmp->key, ht_tmp->value);
-			printf(", ");
+			str = ", ";
 			/*str "," is necessary to separate in the print the key: value*/
 			ht_tmp = ht_tmp->next;
 		}
