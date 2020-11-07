@@ -23,22 +23,17 @@ def island_perimeter(grid):
     ]
     print(island_perimeter(grid))
     """
-    land = []
     perimeter = 0
 
-    for size in range(len(grid)):
-        for width in range(len(grid[size])):
-            if grid[size][width] == 1:
-                land.append(1)
-    # land = [1, 1, 1, 1, 1]
-    if(len(land) == 1):
-        perimeter = 4
-        return perimeter
-
-    for i in range(len(land)):
-        if i == 0 or i == (len(land) - 1):
-            perimeter += 3
-        else:
-            perimeter += 2
-
+    for row in range(len(grid)):
+        for position in range(len(grid[row])):
+            if grid[row][position] == 1:
+                if row - 1 == 0 or grid[row - 1][position] == 0:
+                    perimeter += 1
+                if row + 1 == 0 or grid[row + 1][position] == 0:
+                    perimeter += 1
+                if position - 1 == 0 or grid[row][position - 1] == 0:
+                    perimeter += 1
+                if position + 1 == 0 or grid[row][position + 1] == 0:
+                    perimeter += 1
     return perimeter
