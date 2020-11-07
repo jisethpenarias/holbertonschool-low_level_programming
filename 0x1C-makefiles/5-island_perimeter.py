@@ -31,6 +31,10 @@ def island_perimeter(grid):
             if grid[size][width] == 1:
                 land.append(1)
     # land = [1, 1, 1, 1, 1]
+    if(len(land) == 1):
+        perimeter = 4
+        return perimeter
+
     for i in range(len(land)):
         if i == 0 or i == (len(land) - 1):
             perimeter += 3
